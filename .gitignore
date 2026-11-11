@@ -1,0 +1,24 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Backups
+*.bak
+*.bak-*
+*.backup
+*.tmp
+*.log
+
+# Python
+__pycache__/
+.venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Local files
+*.swp
+*~

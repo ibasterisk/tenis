@@ -1,0 +1,534 @@
+:root {
+    color-scheme: dark;
+    --bg: #080c14;
+    --panel: #101827;
+    --cyan: #22d3ee;
+    --pink: #f472b6;
+    --white: #eaf7ff;
+    --muted: #94a3b8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 0%, #152b45, transparent 60%),
+        var(--bg);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.arcade {
+    width: min(1100px, 96%);
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.brand {
+    color: var(--cyan);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 76px);
+    letter-spacing: 7px;
+    margin: 12px 0;
+    text-shadow: 0 0 25px #22d3ee55;
+}
+
+h1 span {
+    color: var(--cyan);
+}
+
+.subtitle {
+    color: var(--muted);
+}
+
+.game-panel {
+    padding: 24px;
+    border: 1px solid #25445d;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #101827, #0b1220);
+    box-shadow: 0 20px 80px #0008, 0 0 35px #22d3ee12;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(40px, 12vw, 150px);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.scoreboard > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.player-label {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.scoreboard strong {
+    font-size: 48px;
+    font-family: monospace;
+}
+
+.score-divider {
+    color: var(--pink);
+    font-size: 38px;
+}
+
+.canvas-wrapper {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #315773;
+    border-radius: 12px;
+    background: #020509;
+    box-shadow: 0 0 30px #22d3ee18;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 5;
+    touch-action: none;
+}
+
+.game-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #020509bb;
+    padding: 20px;
+}
+
+.game-overlay.hidden {
+    display: none;
+}
+
+.game-overlay h2 {
+    color: var(--cyan);
+    font-size: clamp(20px, 4vw, 38px);
+    text-shadow: 0 0 25px #22d3ee88;
+}
+
+.game-overlay p {
+    color: var(--white);
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.controls label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+select {
+    background: #0b1423;
+    border: 1px solid #315773;
+    border-radius: 9px;
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+}
+
+button {
+    border: 1px solid #2b526a;
+    border-radius: 10px;
+    background: #142337;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 13px 16px;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    box-shadow: 0 0 18px #22d3ee33;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#start-btn {
+    background: var(--cyan);
+    color: #06111c;
+    border-color: var(--cyan);
+}
+
+.buttons,
+.audio-controls {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.audio-controls {
+    padding-top: 15px;
+    border-top: 1px solid #263649;
+}
+
+.audio-controls label {
+    min-width: 160px;
+}
+
+input[type="range"] {
+    accent-color: var(--cyan);
+    cursor: pointer;
+}
+
+.touch-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+    gap: 15px;
+}
+
+.touch-player {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.touch-player span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.touch-player button {
+    min-width: 52px;
+    min-height: 52px;
+    touch-action: none;
+    user-select: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.footer-brand {
+    color: var(--cyan);
+    margin-top: 20px;
+    letter-spacing: 3px;
+}
+
+@media (max-width: 600px) {
+    .arcade {
+        padding: 15px 0;
+    }
+
+    .game-panel {
+        padding: 12px;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+    .scoreboard {
+        gap: 35px;
+    }
+
+    .scoreboard strong {
+        font-size: 34px;
+    }
+
+    .touch-player {
+        flex-wrap: wrap;
+    }
+
+    .touch-player span {
+        width: 100%;
+    }
+
+    .touch-player button {
+        flex: 1;
+    }
+
+    h1 {
+        letter-spacing: 3px;
+    }
+}
+
+/* =========================================
+   iBASTERISK TENIS - COMPACT VIEW
+   ========================================= */
+
+@media (min-width: 801px) {
+    .arcade {
+        width: min(950px, 96%);
+        padding: 10px 0;
+    }
+
+    header {
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: clamp(30px, 5vh, 48px);
+        margin: 5px 0;
+    }
+
+    .subtitle {
+        margin: 4px 0;
+    }
+
+    .game-panel {
+        padding: 12px 18px;
+    }
+
+    .scoreboard {
+        margin-bottom: 8px;
+    }
+
+    .scoreboard strong {
+        font-size: 34px;
+    }
+
+    .canvas-wrapper {
+        width: min(100%, 83vh * 1.8);
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .controls {
+        gap: 8px 14px;
+        margin-top: 12px;
+    }
+
+    .controls label {
+        gap: 5px;
+    }
+
+    select {
+        padding: 7px 10px;
+    }
+
+    button {
+        padding: 8px 12px;
+    }
+
+    .audio-controls {
+        padding-top: 8px;
+    }
+
+    .touch-controls {
+        display: none;
+    }
+
+    footer {
+        margin-top: 9px;
+        font-size: 11px;
+    }
+
+    footer p {
+        display: inline-block;
+        margin: 4px 9px;
+    }
+
+    .footer-brand {
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 801px) and (max-height: 900px) {
+    .canvas-wrapper {
+        width: min(100%, 52vh * 1.8);
+    }
+
+    .brand {
+        font-size: 11px;
+    }
+
+    .scoreboard strong {
+        font-size: 28px;
+    }
+}
+
+/* Mobilne zariadenia */
+@media (max-width: 800px) {
+    .arcade {
+        width: 100%;
+        padding: 6px;
+    }
+
+    header {
+        margin-bottom: 8px;
+    }
+
+    h1 {
+        font-size: 27px;
+        margin: 5px 0;
+    }
+
+    .brand {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    .game-panel {
+        padding: 8px;
+        border-radius: 12px;
+    }
+
+    .scoreboard {
+        margin-bottom: 6px;
+        gap: 35px;
+    }
+
+    .scoreboard strong {
+        font-size: 28px;
+    }
+
+    .controls {
+        gap: 7px;
+        margin-top: 9px;
+    }
+
+    .controls label {
+        font-size: 11px;
+    }
+
+    select {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 9px;
+        font-size: 12px;
+    }
+
+    .buttons,
+    .audio-controls {
+        gap: 6px;
+    }
+
+    .audio-controls {
+        padding-top: 7px;
+    }
+
+    .touch-controls {
+        margin-top: 10px;
+    }
+
+    .touch-player button {
+        min-width: 42px;
+        min-height: 42px;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+/* Telefon otoceny na sirku */
+@media (max-width: 950px) and (orientation: landscape)
+       and (max-height: 500px) {
+    .arcade {
+        padding: 3px;
+    }
+
+    header {
+        margin-bottom: 3px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin: 2px;
+    }
+
+    .scoreboard {
+        margin-bottom: 3px;
+    }
+
+    .scoreboard strong {
+        font-size: 20px;
+    }
+
+    .canvas-wrapper {
+        width: min(100%, 40dvh * 1.8);
+        margin: auto;
+    }
+
+    .controls {
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+    }
+
+    .touch-controls {
+        margin-top: 5px;
+    }
+
+    .touch-player button {
+        min-height: 32px;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+/* SK / EN language switch */
+
+.language-switch {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+.language-switch button {
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+.language-switch button.active {
+    color: #06111c;
+    background: var(--cyan);
+    border-color: var(--cyan);
+}

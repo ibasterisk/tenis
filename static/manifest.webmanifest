@@ -1,0 +1,24 @@
+{
+  "id": "/",
+  "name": "iBasterisk Retro TENIS",
+  "short_name": "TENIS",
+  "description": "Retro Pong arcade game by iBasterisk",
+  "lang": "sk",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#080c14",
+  "theme_color": "#080c14",
+  "icons": [
+    {
+      "src": "/static/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080c14">
+    <link rel="manifest"
+          href="/static/manifest.webmanifest">
+
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="/static/img/apple-touch-icon.png">
+
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
+
+    <link rel="icon"
+          type="image/png"
+          href="/static/img/favicon.png">
+
+
+
+
+    <title>iBasterisk Retro TENIS</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <main class="arcade">
+
+        <header>
+            <div class="brand">iBASTERISK ARCADE</div>
+
+            <div class="language-switch">
+                <button type="button" data-lang="sk" aria-pressed="true">🇸🇰 SK</button>
+                <button type="button" data-lang="en" aria-pressed="false">🇬🇧 EN</button>
+            </div>
+
+            <h1 data-i18n="title">RETRO TENIS</h1>
+
+            <p class="subtitle" data-i18n="subtitle">
+                Klasický PONG v modernom retro štýle
+            </p>
+        </header>
+
+        <section class="game-panel">
+
+            <div class="scoreboard">
+                <div>
+                    <span class="player-label" data-i18n="player1">HRÁČ 1</span>
+                    <strong id="score-left">0</strong>
+                </div>
+
+                <div class="score-divider">:</div>
+
+                <div>
+                    <span class="player-label" id="right-label" data-i18n="computer">
+                        POČÍTAČ
+                    </span>
+                    <strong id="score-right">0</strong>
+                </div>
+            </div>
+
+            <div class="canvas-wrapper">
+                <canvas id="game"
+                        width="900"
+                        height="500">
+                </canvas>
+
+                <div id="game-overlay" class="game-overlay">
+                    <h2 data-i18n="ready">PRIPRAVENÝ HRAŤ?</h2>
+                    <p data-i18n="readyMessage">Vyber herný režim a stlač HRAŤ</p>
+                </div>
+            </div>
+
+            <div class="controls">
+
+                <label>
+                    <span data-i18n="mode">Herný režim</span>
+                    <select id="game-mode">
+                        <option value="cpu" data-i18n="cpuMode">
+                            1 hráč proti počítaču
+                        </option>
+                        <option value="pvp" data-i18n="pvpMode">
+                            2 hráči
+                        </option>
+                    </select>
+                </label>
+
+                <label>
+                    <span data-i18n="difficulty">Obtiažnosť</span>
+                    <select id="difficulty">
+                        <option value="easy" data-i18n="easy">Ľahká</option>
+                        <option value="normal" selected data-i18n="normal">
+                            Normálna
+                        </option>
+                        <option value="hard" data-i18n="hard">Ťažká</option>
+                    </select>
+                </label>
+
+                <div class="buttons">
+                    <button id="start-btn" type="button" data-i18n="play">
+                        ▶ HRAT
+                    </button>
+
+                    <button id="pause-btn" type="button" data-i18n="pauseButton">
+                        ⏸ PAUZA
+                    </button>
+
+                    <button id="reset-btn" type="button" data-i18n="reset">
+                        ↻ RESET
+                    </button>
+                </div>
+
+                <div class="audio-controls">
+                    <button id="music-btn" type="button" data-i18n="music">
+                        ♫ HUDBA: OFF
+                    </button>
+
+                    <button id="sound-btn" type="button" data-i18n="sound">
+                        ♪ ZVUKY: ON
+                    </button>
+
+                    <label>
+                        <span data-i18n="volume">Hlasitosť</span>
+                        <input id="volume"
+                               type="range"
+                               min="0"
+                               max="100"
+                               value="35">
+                    </label>
+                </div>
+            </div>
+
+            <div class="touch-controls">
+                <div class="touch-player">
+                    <span>HRÁČ 1</span>
+                    <button id="left-up" type="button">▲</button>
+                    <button id="left-down" type="button">▼</button>
+                </div>
+
+                <div class="touch-player">
+                    <span>HRÁČ 2</span>
+                    <button id="right-up" type="button">▲</button>
+                    <button id="right-down" type="button">▼</button>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <p data-i18n="controls1">HRÁČ 1: W / S alebo ↑ / ↓</p>
+            <p data-i18n="controls2">HRÁČ 2: ↑ / ↓</p>
+            <p data-i18n="controlsPause">MEDZERNÍK: PAUZA</p>
+
+            <div class="footer-brand">
+                © iBasterisk Arcade
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="/static/i18n.js" defer></script>
+    <script src="/static/game.js" defer></script>
+</body>
+</html>
