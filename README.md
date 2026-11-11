@@ -1,3 +1,5 @@
+[🇸🇰 Slovenčina](README.md) | [🇬🇧 English](README_EN.md)
+
 # 🏓 iBasterisk Retro TENIS
 
 Retro arkádová webová hra inšpirovaná klasickým PONGom.

@@ -1,3 +1,5 @@
+[🇸🇰 Slovenčina](README.md) | [🇬🇧 English](README_EN.md)
+
 # 🏓 iBasterisk Retro TENNIS
 
 A retro arcade browser game inspired by classic PONG.
