@@ -6,6 +6,50 @@ A retro arcade browser game inspired by classic PONG.
 
 🌐 https://tenis.ibasterisk.eu
 
+## 📥 Download and installation
+
+### Option 1 – Git Clone
+
+```bash
+git clone https://github.com/ibasterisk/tenis.git
+cd tenis
+```
+
+### Option 2 – Download ZIP
+
+1. Open the [GitHub repository](https://github.com/ibasterisk/tenis).
+2. Click the green **Code** button.
+3. Select **Download ZIP**.
+4. Extract the downloaded archive.
+
+### Run the application
+
+Configure the IP address and port in a local `.env` file using `.env.example`.
+
+Then run:
+
+```bash
+docker compose up -d --build
+```
+
+The application will be available on port `3087` at the IP address configured in Docker Compose.
+
+**Note:** While the repository is private, downloading requires GitHub authorization.
+
+### Universal Docker configuration
+
+Before starting the application:
+
+1. Copy `.env.example` to `.env`.
+2. Configure `TENIS_BIND_IP` and `TENIS_PORT` in `.env`.
+3. Run `docker compose up -d --build`.
+
+The default configuration uses `127.0.0.1:3087`.
+For access from other devices, configure your server's LAN IP.
+
+To update, run `git pull` followed by
+`docker compose up -d --build`.
+
 ## Features
 
 - Single-player mode against the computer
@@ -40,7 +84,7 @@ The game is a static website served by Nginx.
 Before deploying to another server, adjust the IP address and
 port in `docker-compose.yml`.
 
-The default configuration uses `10.10.8.6:3087`.
+The default configuration uses `127.0.0.1:3087`.
 
 ## Technologies
 
