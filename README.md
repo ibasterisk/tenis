@@ -89,12 +89,6 @@ Predvolená konfigurácia používa `127.0.0.1:3087`.
 
 HTML5 Canvas, CSS3, JavaScript, Web Audio API, Docker a Nginx.
 
-## Jazykové verzie
-
-🇸🇰 Slovenčina / 🇬🇧 English
-
-[English README](README_EN.md)
-
 ## Autor
 
 iBasterisk
